@@ -1,0 +1,37 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Edit Job</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h2>Edit Job Application</h2>
+    <form method="POST">
+        <div class="mb-3">
+            <label>Company</label>
+            <input type="text" name="company" value="{{ job[1] }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Role</label>
+            <input type="text" name="role" value="{{ job[2] }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Applied On</label>
+            <input type="date" name="applied_on" value="{{ job[3] }}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label>Status</label>
+            <select name="status" class="form-control">
+                <option value="Applied" {% if job[4] == 'Applied' %}selected{% endif %}>Applied</option>
+                <option value="Interviewing" {% if job[4] == 'Interviewing' %}selected{% endif %}>Interviewing</option>
+                <option value="Offered" {% if job[4] == 'Offered' %}selected{% endif %}>Offered</option>
+                <option value="Rejected" {% if job[4] == 'Rejected' %}selected{% endif %}>Rejected</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Job</button>
+    </form>
+</div>
+</body>
+</html>
